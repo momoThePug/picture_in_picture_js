@@ -1,4 +1,4 @@
 export default {
   '/': 'Home',
-  '/youtube': "Player"
-};
+  '/about': 'About'
+}

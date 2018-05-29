@@ -1,16 +1,16 @@
 <template>
- <div>
-    <main-layout>
-    <p>Welcome home</p>
+  <main-layout>
+    <p>Page not found</p>
   </main-layout>
- </div>
 </template>
 
 <script>
-import MainLayout from "../layouts/Main.vue";
-export default {
-  components: {
-    MainLayout
+  import MainLayout from '../layouts/Main.vue'
+
+  export default {
+    name: '404',
+    components: {
+      MainLayout
+    }
   }
-};
 </script>

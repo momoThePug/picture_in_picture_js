@@ -1,16 +1,16 @@
 <template>
- <div>
-      <main-layout>
+  <main-layout>
     <p>Welcome home</p>
   </main-layout>
- </div>
 </template>
 
 <script>
-import MainLayout from "../layouts/Main.vue";
-export default {
-  components: {
-    MainLayout
+  import MainLayout from '../layouts/Main.vue'
+
+  export default {
+    name: 'home',
+    components: {
+	MainLayout 
+    }
   }
-};
 </script>

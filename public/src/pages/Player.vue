@@ -9,6 +9,7 @@
 <script>
 import MainLayout from "../layouts/Main.vue";
 export default {
+  name: 'player',
   components: {
     MainLayout
   }
