@@ -1,0 +1,38 @@
+{
+  "name": "node_pip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "cd ./src; mocha -r ts-node/register -r tsconfig-paths/register **/*.spec.ts",
+    "build": "grunt build",
+    "run": "grunt build && npm run start",
+    "dist": "grunt dist && npm run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^9.4.5",
+    "electron-prebuilt": "^1.4.13",
+    "rtrim": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.42",
+    "chai": "^4.1.2",
+    "electron": "~1.8.2",
+    "grunt": "^1.0.2",
+    "grunt-bump": "^0.8.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-exec": "^3.0.0",
+    "mocha": "^3.5.0",
+    "ts-loader": "^4.0.1",
+    "ts-node": "^3.3.0",
+    "tsconfig-paths": "^3.1.1",
+    "tspath": "^1.2.10",
+    "typescript": "^2.7.2"
+  }
+}

@@ -1,0 +1,50 @@
+<template>
+  <div id="player">
+
+  </div>
+</template>
+
+<script>
+import EventBus from "@/EventBus";
+export default {
+  name: "Youtube",
+  data: {
+    done: false,
+    player: null
+  },
+  mounted() {
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  },
+  methods: {
+    onYouTubeIframeAPIReady() {
+      this.player = new YT.Player("player", {
+        height: "390",
+        width: "640",
+        videoId: "M7lc1UVf-VE",
+        events: {
+          onReady: this.onPlayerReady,
+          onStateChange: this.onPlayerStateChange
+        }
+      });
+    },
+    onPlayerReady(event) {
+      event.target.playVideo();
+    },
+    stopVideo() {
+      this.player.stopVideo();
+    },
+    onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !this.done) {
+        setTimeout(stopVideo, 6000);
+        this.done = true;
+      }
+    }
+  }
+};
+</script>
+
+<style>
+</style>
