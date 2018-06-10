@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import EventBus from "@/EventBus";
+import EventBus from "@/lib/EventBus";
 export default {
   name: "Youtube",
   data: {

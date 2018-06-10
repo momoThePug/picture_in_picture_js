@@ -42,7 +42,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-	exclude: /node_modules/,
+        exclude: /node_modules/,
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
