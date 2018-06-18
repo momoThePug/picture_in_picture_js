@@ -1,3 +1,4 @@
+import { Component } from 'vue';
 export interface IPlayer {
     height: string;
     width: string;
@@ -6,5 +7,6 @@ export interface IPlayer {
 }
 
 export interface IPlayerComponent {
-    test(input: string): IPlayer | null;
+    test(input: string): boolean;
+    getComponent(): Component;
 }

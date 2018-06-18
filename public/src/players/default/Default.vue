@@ -1,13 +1,13 @@
 <template>
-    <div> hola
-        <slot></slot>
+    <div> 
+       NOT RECOGNIZED VIDEO STRATEGY
     </div>
 </template>
 
 
 <script>
 export default {
-  name: "Youtube",
+  name: "NOT_GOOD",
   components: {}
 };
 </script>
