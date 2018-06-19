@@ -1,7 +1,7 @@
 <template>
   <div>
       <main-layout>
-          <VideoStrategy></VideoStrategy>
+          <VideoStrategy  v-bind:mediaId="mediaId"></VideoStrategy>
       </main-layout>
   </div>
 </template>
@@ -11,9 +11,16 @@ import MainLayout from "../layouts/VideoContainer.vue";
 import { Router } from "@/router/Router";
 import { LoadVideoStrategy } from "../players/Loader";
 
-const VideoStrategy = LoadVideoStrategy(Router.getParam("url"));
+const VideoStrategyPack = LoadVideoStrategy(Router.getParam("url"));
+const VideoStrategy = VideoStrategyPack.component;
+
 export default {
   name: "player",
+  data() {
+    return {
+      mediaId: VideoStrategyPack.mediaId
+    };
+  },
   components: {
     MainLayout,
     VideoStrategy

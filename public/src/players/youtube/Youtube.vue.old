@@ -7,7 +7,6 @@
 <script>
 import EventBus from "@/lib/EventBus";
 
-alert("cargao mano");
 export default {
   name: "Youtube",
   data: {
