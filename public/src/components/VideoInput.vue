@@ -9,7 +9,7 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal bottom-sheet">
         <div class="modal-content">
-            <VideoForm></VideoForm>
+            <VideoForm v-bind:mediaUrl="mediaUrl"></VideoForm>
         </div>
     </div>
 </div>
@@ -21,6 +21,7 @@ $(document).ready(function() {
   $(".modal").modal();
 });
 export default {
+  props: ["mediaUrl"],
   components: {
     VideoForm
   }

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MainLayout from "../layouts/VideoContainer.vue";
+import MainLayout from "../layouts/Main.vue";
 
 export default {
   name: "home",

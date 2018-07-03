@@ -1,24 +1,27 @@
 <template>
-<MainLayout>
-  <div class="row">
-        <div class="col s12">
-            <slot></slot>      
-            <VideoContainer></VideoContainer>
-        </div> 
+  <div class="player">
+    <slot></slot>      
+    <VideoInput v-bind:mediaUrl="mediaUrl"></VideoInput>
   </div>
-</MainLayout>
 </template>
 
 <script>
-import MainLayout from "./Main.vue";
-import VideoContainer from "@/components/VideoInput.vue";
+import VideoInput from "@/components/VideoInput.vue";
 export default {
+  props: ["mediaUrl"],
   components: {
-    VideoContainer,
-    MainLayout
+    VideoInput
   }
 };
 </script>
 
-<style scoped>
+<style>
+    body, .player {
+      background-color: #000;
+    }
+    .player  iframe {
+      margin: 0 auto;
+      position: relative;
+      display: block;
+    }
 </style>

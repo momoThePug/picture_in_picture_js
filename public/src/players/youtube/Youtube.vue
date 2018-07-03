@@ -1,6 +1,6 @@
 <template>
     <div id="youtube">
-        <youtube-media   :video-id="mediaId"></youtube-media > 
+        <youtube-media  :player-width="width" :player-height="height" :video-id="mediaId"></youtube-media > 
     </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
     return {};
   },
   mounted() {},
-  props: ["mediaId"],
+  props: ["mediaId", "height", "width"],
   methods: {}
 };
 </script>
