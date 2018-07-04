@@ -10,6 +10,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@types/express": "^4.16.0",
+    "express": "^4.16.3",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vue-youtube-embed": "^2.1.3"

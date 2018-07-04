@@ -56,7 +56,9 @@ class WWW {
     const bind =
       typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
     console.log("Listening on " + bind);
-    this.app.initialize();
+    this.app.initialize({
+      addr:addr
+    });
   }
   private setRunningMode(runningMode: string) {
     runningMode = runningMode || "dev";

@@ -11,7 +11,8 @@
     "start": "electron .",
     "build": "grunt build",
     "run": "grunt build && npm run start",
-    "dist": "grunt dist && npm run start"
+    "dist": "grunt dist && npm run start",
+    "serve": "grunt build && node dist/app/services/pip/bin/www.js"
   },
   "author": "Daniel Vera Morales",
   "license": "ISC",
