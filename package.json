@@ -4,15 +4,19 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "start": "electron .",
+    "vue": "cd public && npm run start",
     "test": "cd ./src; mocha -r ts-node/register -r tsconfig-paths/register **/*.spec.ts",
+    "compile": "tsc -p \"./\"",
+    "vue_build": "cd public && npm run build",
+    "start": "electron .",
     "build": "grunt build",
     "run": "grunt build && npm run start",
     "dist": "grunt dist && npm run start"
   },
-  "author": "",
+  "author": "Daniel Vera Morales",
   "license": "ISC",
   "dependencies": {
+    "@momothepug/tsmodule-alias": "^0.3.0",
     "@types/node": "^9.4.5",
     "electron-prebuilt": "^1.4.13",
     "rtrim": "^1.0.0"

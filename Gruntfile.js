@@ -20,29 +20,20 @@ module.exports = function (grunt) {
       }
     },
     clean: {
-      build: ["./dist/app", "./src/**/*.js", "./dist/*.js"],
-      front: ["./dist/public"],
+      build: ["./dist/app", "./src/**/*.js", "./src/**/*.d.ts", "./dist/**/*.d.ts", "./dist/*.js", "./dist/tsconfig.json"],
+      vue: ["./dist/public"],
       postbuild: ["./src/**/*.js"]
     },
     exec: {
-      frontdist: {
-        command: 'cd public && npm run build'
+      compile: {
+        command: 'npm run compile'
       },
-      front: {
-        command: 'cd public && npm run start'
-      },
-      build: {
-        command: 'tsc -p "./"'
-      },
-      vue: {
-        command: 'cd public && npm run start'
-      },
-      test: {
-        command: "npm run test"
+      vue_build: {
+        command: "npm run vue_build"
       }
     },
     copy: {
-      frontdist: {
+      vue_build: {
         files: [
           {
             expand: true,
@@ -69,26 +60,18 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-exec");
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks('grunt-bump');
-  grunt.registerTask("build", "Compiles node code", [
+  
+  /*Custom tasks*/
+ grunt.registerTask("build", "Compiles node code", [
     "clean:build",
-    "exec:build",
+    "exec:compile",
     "copy:build",
     "clean:postbuild"
   ]);
-  grunt.registerTask("front", "Compiles node code", [
-    "exec:front"
-  ]);
-  grunt.registerTask("frontdev", "Compiles node code", [
-    "clean:front",
-    "exec:frontdist",
-    "copy:frontdist"
-  ]);
-  grunt.registerTask("vue", "Compiles node code", [
-    "exec:vue"
-  ]);
   grunt.registerTask("dist", "Compiles node code", [
-    "build", "frontdev"
+    "build", 
+    "clean:vue",
+    "exec:vue_build",
+    "copy:vue_build"
   ]);
-  grunt.registerTask("test", "test source code", ["exec:test"]);
-  grunt.registerTask("default", "My default task", ["build"]);
 };

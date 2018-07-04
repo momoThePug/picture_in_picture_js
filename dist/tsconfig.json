@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./",
+    "strict": false,
+    "rootDir": "./",
+    "declaration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "paths":{
+    "@root/*": "./*",
+    "@app/*": "./app/*",
+    "@public/*": "./public/*",
+    "@services/*": [
+      "./services/*"
+    ]
+  },
+  "include": [
+    "./",
+    "./**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
