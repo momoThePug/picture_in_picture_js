@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Electron = require("electron");
+const Settings_1 = require("./Settings");
 const path = require('path');
 const url = require('url');
 // Keep a global reference of the window object, if you don't, the window will
@@ -8,8 +9,9 @@ const url = require('url');
 class MY_WINDOW {
     static createWindow() {
         // Create the browser window.
-        MY_WINDOW._win = new Electron.BrowserWindow({ width: 800, height: 800, alwaysOnTop: true });
+        MY_WINDOW._win = new Electron.BrowserWindow({ frame: true });
         MY_WINDOW._win.setMenu(null);
+        Settings_1.loadServerSettings(MY_WINDOW._win);
         // and load the index.html of the app.
         MY_WINDOW._win.loadURL(url.format({
             hostname: "localhost",
@@ -18,13 +20,19 @@ class MY_WINDOW {
             slashes: true
         }));
         // Open the DevTools.
-        // win.webContents.openDevTools()
+        // MY_WINDOW._win.webContents.openDevTools()
         // Emitted when the window is closed.
         MY_WINDOW._win.on('closed', () => {
             // Dereference the window object, usually you would store windows
             // in an array if your app supports multi windows, this is the time
             // when you should delete the corresponding element.
             MY_WINDOW._win = null;
+        });
+        MY_WINDOW._win.on("resize", () => {
+            Settings_1.saveServerSettings(MY_WINDOW._win);
+        });
+        MY_WINDOW._win.on("move", () => {
+            Settings_1.saveServerSettings(MY_WINDOW._win);
         });
     }
 }
@@ -48,5 +56,3 @@ Electron.app.on('activate', () => {
         MY_WINDOW.createWindow();
     }
 });
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
