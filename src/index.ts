@@ -15,10 +15,11 @@ class MY_WINDOW {
 
         // and load the index.html of the app.
         MY_WINDOW._win.loadURL(url.format({
-            pathname: path.join(__dirname, '/public/index.html'),
-            protocol: 'file:',
+            hostname: "localhost",
+            port:"3000",
+            protocol: 'http:',
             slashes: true
-        }))
+        }));
 
         // Open the DevTools.
         // win.webContents.openDevTools()

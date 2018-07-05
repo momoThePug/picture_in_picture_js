@@ -10,6 +10,7 @@ class MyApp {
         return new MyApp();
     }
     initialize(data) {
+        const that = this;
         this.expressApp.use(function (req, res, next) {
             // Website you wish to allow to connect
             res.setHeader('Access-Control-Allow-Origin', 'http://localhost:' + data.addr.port);
@@ -22,7 +23,7 @@ class MyApp {
         });
         this.expressApp.use(express.static(this.publicPath));
         this.expressApp.get('*', function (req, res, next) {
-            res.sendFile(path.resolve(this.publicPath + '/index.html'));
+            res.sendFile(path.resolve(that.publicPath + '/index.html'));
         });
     }
     /**

@@ -1,3 +1,5 @@
+import {tellParentProcess, _SERVER_RUNNER_MSG} from "./ProcessHelper";
+
 class WWW {
   readonly http = require("http");
   private app: any;
@@ -38,6 +40,7 @@ class WWW {
       typeof this.port === "string" ? "Pipe " + this.port : "Port " + this.port;
 
     // handle specific listen errors with friendly messages
+    tellParentProcess(_SERVER_RUNNER_MSG.KILLED);
     switch (error.code) {
       case "EACCES":
         console.error(bind + " requires elevated privileges");
@@ -51,6 +54,7 @@ class WWW {
         throw error;
     }
   }
+
   private onListening() {
     const addr = this.server.address();
     const bind =
@@ -59,6 +63,7 @@ class WWW {
     this.app.initialize({
       addr:addr
     });
+    tellParentProcess(_SERVER_RUNNER_MSG.MOUNTED);
   }
   private setRunningMode(runningMode: string) {
     runningMode = runningMode || "dev";

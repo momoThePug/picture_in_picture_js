@@ -12,8 +12,9 @@ class MY_WINDOW {
         MY_WINDOW._win.setMenu(null);
         // and load the index.html of the app.
         MY_WINDOW._win.loadURL(url.format({
-            pathname: path.join(__dirname, '/public/index.html'),
-            protocol: 'file:',
+            hostname: "localhost",
+            port: "3000",
+            protocol: 'http:',
             slashes: true
         }));
         // Open the DevTools.

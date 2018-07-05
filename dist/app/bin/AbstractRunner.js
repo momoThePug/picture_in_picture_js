@@ -1,4 +1,5 @@
 "use strict";
+const ProcessHelper_1 = require("./ProcessHelper");
 class WWW {
     constructor(services, the_port, runningMode) {
         this.http = require("http");
@@ -29,6 +30,7 @@ class WWW {
         }
         const bind = typeof this.port === "string" ? "Pipe " + this.port : "Port " + this.port;
         // handle specific listen errors with friendly messages
+        ProcessHelper_1.tellParentProcess(ProcessHelper_1._SERVER_RUNNER_MSG.KILLED);
         switch (error.code) {
             case "EACCES":
                 console.error(bind + " requires elevated privileges");
@@ -49,6 +51,7 @@ class WWW {
         this.app.initialize({
             addr: addr
         });
+        ProcessHelper_1.tellParentProcess(ProcessHelper_1._SERVER_RUNNER_MSG.MOUNTED);
     }
     setRunningMode(runningMode) {
         runningMode = runningMode || "dev";
