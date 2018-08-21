@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <slot></slot>
-    <VideoInput></VideoInput>
+    <VideoInput>
+    </VideoInput>
+
   </div>
 </template>
 
@@ -14,5 +16,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+html,body {
+   -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
 </style>

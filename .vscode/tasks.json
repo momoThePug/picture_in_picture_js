@@ -12,6 +12,11 @@
             "type": "npm",
             "script": "run",
             "problemMatcher": []
+        },
+        {
+            "type": "grunt",
+            "task": "dist",
+            "problemMatcher": []
         }
     ]
 }

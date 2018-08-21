@@ -9,7 +9,7 @@ const url = require('url');
 class MY_WINDOW {
     static createWindow() {
         // Create the browser window.
-        MY_WINDOW._win = new Electron.BrowserWindow({ frame: true });
+        MY_WINDOW._win = new Electron.BrowserWindow({ frame: false });
         MY_WINDOW._win.setMenu(null);
         Settings_1.loadServerSettings(MY_WINDOW._win);
         // and load the index.html of the app.
@@ -29,9 +29,6 @@ class MY_WINDOW {
             MY_WINDOW._win = null;
         });
         MY_WINDOW._win.on("resize", () => {
-            Settings_1.saveServerSettings(MY_WINDOW._win);
-        });
-        MY_WINDOW._win.on("move", () => {
             Settings_1.saveServerSettings(MY_WINDOW._win);
         });
     }

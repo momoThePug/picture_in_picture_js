@@ -11,7 +11,7 @@ class MY_WINDOW {
     static _win: Electron.BrowserWindow = null;
     static createWindow() {
         // Create the browser window.
-        MY_WINDOW._win = new Electron.BrowserWindow({ frame: true });
+        MY_WINDOW._win = new Electron.BrowserWindow({ frame: false });
         MY_WINDOW._win.setMenu(null);
         loadServerSettings(MY_WINDOW._win);
 
@@ -33,12 +33,9 @@ class MY_WINDOW {
             // when you should delete the corresponding element.
             MY_WINDOW._win = null
         });
-        MY_WINDOW._win.on("resize",  () => { 
-            saveServerSettings(MY_WINDOW._win);
-        });
-        MY_WINDOW._win.on("move",  () => { 
-            saveServerSettings(MY_WINDOW._win);
-        });
+         MY_WINDOW._win.on("resize",  () => { 
+             saveServerSettings(MY_WINDOW._win);
+         });
     }
 }
 

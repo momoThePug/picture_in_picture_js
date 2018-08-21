@@ -28,8 +28,12 @@ function createGUI(){
 function onServerMessage(msg, GUI_SERVER){
     switch(msg){
         case _SERVER_RUNNER_MSG.MOUNTED:
-            createGUI().on("close", ()=>{
+            let p1 = createGUI();
+            p1.on("close", ()=>{
                 GUI_SERVER.kill('SIGHUP');
+            });
+            p1.stdout.on('data', (data) => {
+                console.log(`FROM GUI: ${data}`);
             });
         break;
     }

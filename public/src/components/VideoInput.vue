@@ -2,9 +2,10 @@
 <div>
     <div class="fixed-action-btn">
         <!-- Modal Trigger -->
-        <a class="btn-floating btn-large waves-effect waves-light pink darken-4 modal-trigger" href="#modal1">
+        <a class="no-drag btn-floating btn-small waves-effect waves-light pink darken-4 modal-trigger" href="#modal1">
             <i class="material-icons">live_tv</i>
         </a>
+        <slot></slot>
     </div>
     <!-- Modal Structure -->
     <div id="modal1" class="modal bottom-sheet">

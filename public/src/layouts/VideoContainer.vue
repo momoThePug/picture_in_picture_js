@@ -1,5 +1,5 @@
 <template>
-  <div class="player">
+  <div class="player no-drag">
     <slot></slot>      
     <VideoInput v-bind:mediaUrl="mediaUrl"></VideoInput>
   </div>
