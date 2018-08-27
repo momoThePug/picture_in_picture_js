@@ -13,6 +13,7 @@ class MY_WINDOW {
         // Create the browser window.
         MY_WINDOW._win = new Electron.BrowserWindow({ frame: false });
         MY_WINDOW._win.setMenu(null);
+        //MY_WINDOW._win.webContents.openDevTools();
         loadServerSettings(MY_WINDOW._win);
 
         // and load the index.html of the app.

@@ -1,6 +1,6 @@
 <template>
     <div id="youtube">
-        <youtube-media  :player-width="width" :player-height="height" :video-id="mediaId"></youtube-media > 
+        <youtube-media  @ready="ready" :player-vars="vars" :player-width="width" :player-height="height" :video-id="mediaId"></youtube-media > 
     </div>
 </template>
 
@@ -17,10 +17,26 @@ Vue.use(VueYouTubeEmbed, {
 export default {
   name: "Youtube",
   data() {
-    return {};
+    return {
+      vars: {
+        theme:'dark',
+        color:'white',
+        showinfo: 0,
+        autohide: 2,
+        fs: 0,
+        rel: 0,
+        controls: 0,
+        showsearch: 0,
+        frameborder: 0,
+        modestbranding: 1
+      }
+    };
   },
-  mounted() {},
+
   props: ["mediaId", "height", "width"],
-  methods: {}
+  methods: {
+    ready() {
+    }
+  }
 };
 </script>

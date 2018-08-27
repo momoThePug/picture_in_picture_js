@@ -1,17 +1,17 @@
 <template>
-  <div class="container">
-    <slot></slot>
-    <VideoInput>
-    </VideoInput>
-
+  <div class="">
+    <WinActions></WinActions>
+    <VideoInput></VideoInput>
+        <slot></slot>
   </div>
 </template>
 
 <script>
+import WinActions from "@/components/WinActions.vue";
 import VideoInput from "@/components/VideoInput.vue";
 export default {
   components: {
-    VideoInput
+    VideoInput, WinActions
   }
 };
 </script>
